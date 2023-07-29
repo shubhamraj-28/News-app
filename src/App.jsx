@@ -8,7 +8,7 @@ export default function App(){
  const[data,setData]  = useState([])
  const[mouseLoading,setMouseLoading]=useState('notLoading');
  useEffect(() => {
-  fetch("https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=ed86ff79aa174d58be805127aec1fa59")
+  fetch("https://gnews.io/api/v4/search?q=headlines&lang=en&country=us&max=10&apikey=4de8792af1945b0e9c488a8619b2d0fa")
     .then(response => response.json())
     .then((newsData) => {
       setData(newsData.articles);
@@ -21,7 +21,7 @@ export default function App(){
                                 
 console.log(data.length);
  
- const cards = data.filter((content)=>content.urlToImage!=null).map(item=>{
+ const cards = data.map(item=>{
   return (
       <Main 
      
