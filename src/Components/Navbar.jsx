@@ -1,12 +1,11 @@
-
 import { useState } from 'react';
-import logo from './logo1.jpg'
+import logo from './NewsAppLogo.png'
 export default function Navbar(props) {
   const handleClick = async (type)=>{
-      props.setMouseLoading(true);
-      const response = await fetch(`https://newsapi.org/v2/everything?q=${type}&from=2023-06-26&sortBy=publishedAt&apiKey=323a395a388f4befbd3a91b17a54d1c0`);
+      props.setMouseLoading('Loading');
+      const response = await fetch(`https://newsapi.org/v2/everything?q=${type}&from=2023-06-28&sortBy=publishedAt&apiKey=2a25298525ea4645b6c33a6b9f3bd4fe`);
   
-      props.setMouseLoading(false);
+      props.setMouseLoading('notLoading');
   
       const result = await response.json();
   
@@ -23,18 +22,19 @@ export default function Navbar(props) {
   return (
     <div className="Nav">
         <img src={logo} alt="logoimage" className='logoPhoto'/>
-        <div className="a">
-            <div onClick={()=>handleClick('sports')} >Sports</div>
-            <div onClick={()=>handleClick('Finance')}>Finance</div>
-            <div onClick={()=>handleClick('politics')}>Politics</div>
+        <div className="NavItemContainer">
+            <div className="NavItem" onClick={()=>handleClick('sports')} >Sports</div>
+            <div className="NavItem" onClick={()=>handleClick('Finance')}>Finance</div>
+            <div className="NavItem" onClick={()=>handleClick('politics')}>Politics</div>
         </div>
-        <input 
-        type="text" 
-        placeholder='Type Something'
-        onChange={handleSearchChange}
-        />
-        <button onClick={()=>handleClick(`${searchBar}`)}>Search</button>
+        <div className='searchContainer'>
+            <input 
+            type="text" 
+            placeholder='Type Something'
+            onChange={handleSearchChange}
+            />
+            <button onClick={()=>handleClick(`${searchBar}`)}>Search</button>
+        </div>
     </div>
   )
 }
-
