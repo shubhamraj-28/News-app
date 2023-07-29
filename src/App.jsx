@@ -8,7 +8,7 @@ export default function App(){
  const[data,setData]  = useState([])
  const[mouseLoading,setMouseLoading]=useState('notLoading');
  useEffect(() => {
-  fetch("https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=2a25298525ea4645b6c33a6b9f3bd4fe")
+  fetch("https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=ed86ff79aa174d58be805127aec1fa59")
     .then(response => response.json())
     .then((newsData) => {
       setData(newsData.articles);

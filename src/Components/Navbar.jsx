@@ -3,7 +3,7 @@ import logo from './NewsAppLogo.png'
 export default function Navbar(props) {
   const handleClick = async (type)=>{
       props.setMouseLoading('Loading');
-      const response = await fetch(`https://newsapi.org/v2/everything?q=${type}&from=2023-06-28&sortBy=publishedAt&apiKey=2a25298525ea4645b6c33a6b9f3bd4fe`);
+      const response = await fetch(`https://newsapi.org/v2/everything?q=${type}&from=2023-06-29&sortBy=publishedAt&apiKey=ed86ff79aa174d58be805127aec1fa59`);
   
       props.setMouseLoading('notLoading');
   
